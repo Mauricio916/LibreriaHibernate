@@ -33,6 +33,19 @@ public class Clientes {
 	
 	
 	public Clientes() {}
+	
+
+	public Clientes(int idCliente, String cedula, String nombre, String apellido, String direccion, String telefono,
+			String correo) {
+		this.idCliente = idCliente;
+		this.cedula = cedula;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.correo = correo;
+	}
+
 
 	public int getIdCliente() {
 		return idCliente;

@@ -16,13 +16,33 @@ public class PrincipalCliente {
 		
 		ClienteDAO clienteDAO = context.getBean("clienteDAOImpl",ClienteDAO.class);
 		
-		List<Clientes> clientes = clienteDAO.findAll();
+		//CRUD
 		
-//		System.out.println(clientes.toString());
+		
+		//add
+		//Clientes cliente1 = new Clientes(0,"18115151","nombre1","apellido1","direccion","telefono","fassd@sad.com");
+		//clienteDAO.add(cliente1);
+		
+		Clientes cliente2 = new Clientes(39,"181151525251","nombre17","apellido15","direccion","telefono","fassd@sad.com");
+		//clienteDAO.add(cliente2);
+		
+		//del
+		clienteDAO.del(39);
+		
+		//System.out.println(cliente.toString());
+		
+		//findAll
+				List<Clientes> clientes = clienteDAO.findAll();
+				
 		
 		for (Clientes clientes2 : clientes) {
 			System.out.println(clientes2.toString());
 		}
+				
+				//findOne
+				//Clientes cliente = clienteDAO.findOne(1);
+//				System.out.println(clientes.toString());
+				
 		
 		context.close();
 
