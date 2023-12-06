@@ -57,7 +57,7 @@ public class AutorDAOImpl implements AutorDAO{
 		// TODO Auto-generated method stub
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("UPDATE Autor SET nombre=:nombre, pais=:pais, apellido=:apellido, correo=:correo, telefono=:telefono, direccion=:direccion WHERE idAutor=: idAutor");
+		Query query = session.createQuery("UPDATE Autor SET nombre=:nombre, pais=:pais, apellido=:apellido, correo=:correo, telefono=:telefono, direccion=:direccion WHERE idAutor=: idAutor", Autor.class);
 		query.setParameter("nombre", autor.getNombre());
 		query.setParameter("pais", autor.getPais());
 		query.setParameter("apellido", autor.getApellido());
