@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.distribuida.entities.Autor;
 
+@Repository
 public class AutorDAOImpl implements AutorDAO{
 	
 	@Autowired
@@ -29,21 +32,41 @@ public class AutorDAOImpl implements AutorDAO{
 	}
 
 	@Override
+	@Transactional
 	public Autor findOne(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query<Autor> query = session.createQuery("SELECT au FROM Autor au WHERE idAutor =: keyIdAutor", Autor.class);
+		query.setParameter("keyIdAutor", id);
+		return query.getSingleResult();
 	}
 
 	@Override
+	@Transactional
 	public void add(Autor autor) {
 		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(autor);
 		
 	}
 
 	@Override
+	@Transactional
 	public void up(Autor autor) {
 		// TODO Auto-generated method stub
 		
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("UPDATE Autor SET nombre=:nombre, pais=:pais, apellido=:apellido, correo=:correo, telefono=:telefono, direccion=:direccion WHERE idAutor=: idAutor");
+		query.setParameter("nombre", autor.getNombre());
+		query.setParameter("pais", autor.getPais());
+		query.setParameter("apellido", autor.getApellido());
+		query.setParameter("correo", autor.getCorreo());
+		query.setParameter("telefono", autor.getTelefono());
+		query.setParameter("direccion", autor.getDireccion());
+		query.setParameter("idAutor", autor.getId_autor());
+		
+		query.executeUpdate();
 	}
 
 	@Override

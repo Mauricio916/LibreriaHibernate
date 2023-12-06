@@ -1,24 +1,60 @@
 package com.distribuida.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name = "autor")
 public class Autor {
 	
-	
-	private int id_autor;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_autor")
+	private int idAutor;
+	@Column(name = "nombre")
 	private String nombre;
+	@Column(name = "pais")
 	private String pais;
+	@Column(name = "apellido")
 	private String apellido;
+	@Column(name = "correo")
 	private String correo;
-	private int telefono;
+	@Column(name = "telefono")
+	private String telefono;
+	@Column(name = "direccion")
 	private String direccion;
 	
 	public Autor() {}
+	
+	
+
+	public Autor(int idAutor, String nombre, String pais, String apellido, String correo, String telefono,
+			String direccion) {
+		
+		this.idAutor = idAutor;
+		this.nombre = nombre;
+		this.pais = pais;
+		this.apellido = apellido;
+		this.correo = correo;
+		this.telefono = telefono;
+		this.direccion = direccion;
+	}
+
+
 
 	public int getId_autor() {
-		return id_autor;
+		return idAutor;
 	}
 
 	public void setId_autor(int id_autor) {
-		this.id_autor = id_autor;
+		this.idAutor = id_autor;
 	}
 
 	public String getNombre() {
@@ -53,11 +89,11 @@ public class Autor {
 		this.correo = correo;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
@@ -71,7 +107,7 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Autor [id_autor=" + id_autor + ", nombre=" + nombre + ", pais=" + pais + ", apellido=" + apellido
+		return "Autor [id_autor=" + idAutor + ", nombre=" + nombre + ", pais=" + pais + ", apellido=" + apellido
 				+ ", correo=" + correo + ", telefono=" + telefono + ", direccion=" + direccion + "]";
 	}
 	
