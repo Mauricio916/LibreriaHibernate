@@ -70,9 +70,17 @@ public class AutorDAOImpl implements AutorDAO{
 	}
 
 	@Override
+	@Transactional
 	public void del(int id) {
 		// TODO Auto-generated method stub
 		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query query = session.createQuery("DELETE FROM Autor au WHERE au.idAutor=: idAutor");
+		
+		query.setParameter("idAutor", id);
+		
+		query.executeUpdate();
 	}
 	
 	
