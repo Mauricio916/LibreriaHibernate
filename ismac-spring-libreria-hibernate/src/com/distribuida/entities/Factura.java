@@ -25,7 +25,7 @@ public class Factura {
 	@Column(name = "id_factura")
 	private int idFactura;
 	@Column(name = "num_factura")
-	private int num_factura; 
+	private String num_factura; 
 	@Column(name = "fecha")
 	private Date fecha;
 	@Column(name = "total_neto")
@@ -36,11 +36,32 @@ public class Factura {
 	private double total;
 	
 	
+	//CascadeType.REMOVE No usar eso, gil.
 	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name="id_cliente")
 	private Clientes cliente;
 	
 	public Factura() {}
+	
+	
+	
+	
+
+	public Factura(int idFactura, String num_factura, Date fecha, double totalNeto, double iva, double total,
+			Clientes cliente) {
+	
+		this.idFactura = idFactura;
+		this.num_factura = num_factura;
+		this.fecha = fecha;
+		this.totalNeto = totalNeto;
+		this.iva = iva;
+		this.total = total;
+		this.cliente = cliente;
+	}
+
+
+
+
 
 	public int getIdFactura() {
 		return idFactura;
@@ -50,11 +71,11 @@ public class Factura {
 		this.idFactura = idFactura;
 	}
 
-	public int getNum_factura() {
+	public String getNum_factura() {
 		return num_factura;
 	}
 
-	public void setNum_factura(int num_factura) {
+	public void setNum_factura(String num_factura) {
 		this.num_factura = num_factura;
 	}
 

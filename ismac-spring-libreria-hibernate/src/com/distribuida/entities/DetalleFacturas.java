@@ -3,7 +3,7 @@ package com.distribuida.entities;
 public class DetalleFacturas {
 	
 	private int idDetFac;
-	private int cantidad;
+	private String cantidad;
 	private double subtotal;
 	private Factura factura;
 	private Libros libro;
@@ -19,11 +19,11 @@ public class DetalleFacturas {
 		
 	}
 
-	public int getCantidad() {
+	public String getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
 	}
 

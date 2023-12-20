@@ -11,9 +11,9 @@ public List<Factura> findAll();
 	
 	public Factura findOne(int id);
 	
-	public void add(Factura Factura);
+	public void add(Factura factura);
 	
-	public void up(Clientes cliente);
+	public void up(Factura factura);
 	
 	public void del(int id);
 	

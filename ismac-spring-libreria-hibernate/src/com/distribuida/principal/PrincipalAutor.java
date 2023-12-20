@@ -21,6 +21,8 @@ public class PrincipalAutor {
 		
 		Autor autor2 = new Autor(0,"nombre2","apellido2","pais2","direccion1","correo1","telefono1");
 //		autorDAO.up(autor2);
+		
+		//del
 		autorDAO.del(56);
 		
 		
