@@ -1,11 +1,12 @@
-package com.distribuida.dao;
+package com.distribuida.dto;
 
 import java.util.List;
 
 import com.distribuida.entities.Autor;
 
-public interface AutorDAO {
-
+public interface AutorService {
+	
+	
 	public List<Autor> findAll();
 	
 	public Autor findOne(int id);
@@ -16,6 +17,6 @@ public interface AutorDAO {
 	
 	public void del(int id);
 	
-	public List<Autor> finAll(String busqueda);
-	
+	public List<Autor> finAll(String busqueda);	
+
 }

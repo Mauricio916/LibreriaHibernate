@@ -1,11 +1,34 @@
 package com.distribuida.entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+
+@Component
+@Entity
+@Table(name = "detalle_factura")
 public class DetalleFacturas {
 	
+	@Column(name = "idDetFac")
 	private int idDetFac;
+	@Column(name = "cantidad")
 	private String cantidad;
+	@Column(name = "subtotal")
 	private double subtotal;
+	
+	
+	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="id_factura")
 	private Factura factura;
+	
+	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="id_libro")
 	private Libros libro;
 	
 	public DetalleFacturas() {}

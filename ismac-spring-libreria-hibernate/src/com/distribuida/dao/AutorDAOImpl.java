@@ -82,6 +82,30 @@ public class AutorDAOImpl implements AutorDAO{
 		
 		query.executeUpdate();
 	}
+
+	@Transactional
+	@Override
+	public List<Autor> finAll(String busqueda) {
+		// TODO Auto-generated method stub
+		//SQL SELECT * FROM Autor LIKE "%ca%"
+		
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<Autor> query = session.createQuery("SELECT au FROM Autor au WHERE"
+				+ "au.nombre LIKE: busqueda " 
+				+ "au.apellido LIKE: busqueda "
+				+ "au.pais LIKE: busqueda" 
+				+ "au.direccion LIKE: busqueda" 
+				+ "au.telefono LIKE: busqueda" 
+				+ "au.correo LIKE: busqueda" 
+				+ "au.telefono LIKE: busqueda", Autor.class );
+		query.setParameter("busqueda", busqueda);
+		
+		
+		
+		return query.getResultList();
+	}
 	
 	
 

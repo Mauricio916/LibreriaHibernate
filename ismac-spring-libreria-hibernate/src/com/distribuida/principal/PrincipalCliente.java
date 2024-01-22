@@ -11,6 +11,7 @@ public class PrincipalCliente {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+	}
 		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		
@@ -27,7 +28,7 @@ public class PrincipalCliente {
 		//clienteDAO.add(cliente2);
 		
 		//del
-		clienteDAO.del(39);
+		clienteDAO.del();
 		
 		//System.out.println(cliente.toString());
 		
