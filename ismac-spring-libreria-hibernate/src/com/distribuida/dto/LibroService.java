@@ -27,4 +27,8 @@ public List<Libros> findAll();
 	public void del(int id);
 	
 	public List<Libros> findAll(String busqueda);
+
+	public void add(int i, String string, String string2, int j, String string3, String string4, Date date,
+			String string5, String string6, String string7, int k, String string8, String string9, double d, int l,
+			int m);
 }

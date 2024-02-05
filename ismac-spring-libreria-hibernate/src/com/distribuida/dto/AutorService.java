@@ -11,12 +11,16 @@ public interface AutorService {
 	
 	public Autor findOne(int id);
 	
-	public void add(Autor autor);
+	public void add(int idAutor, String nombre, String pais, String apellido, String correo, String telefono,
+			String direccion);
 	
-	public void up(Autor autor);
+	public void up(int idAutor, String nombre, String pais, String apellido, String correo, String telefono,
+			String direccion);
 	
 	public void del(int id);
 	
-	public List<Autor> finAll(String busqueda);	
+	public List<Autor> finAll(String busqueda);
+
+	void add();	
 
 }

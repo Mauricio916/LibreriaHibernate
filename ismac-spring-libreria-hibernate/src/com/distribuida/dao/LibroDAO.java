@@ -8,7 +8,7 @@ public interface LibroDAO {
 
 public List<Libros> findAll();
 	
-	public LibroDAO findOne(int id);
+	public Libros findOne(int id);
 	
 	public void add(Libros libro);
 	
